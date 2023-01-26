@@ -1,0 +1,79 @@
+.logo {
+  font-size: 2em;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+nav.navbar {
+  background-color: aliceblue;
+  height: 80px;
+  font-size: 1.2em;
+}
+
+form.navbar-search {
+  height: auto;
+}
+
+.navbar-search {
+  padding: 0;
+  margin: 0;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  position: fix;
+}
+.navbar-search input {
+  width: 80%;
+  /* height: 100%; */
+  float: left;
+  line-height: 80px;
+}
+.navbar-search button {
+  /* display: flex; */
+  float: right;
+  width: 15%;
+  line-height: 80px;
+}
+
+.nested.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.nested.dropdown .dropdown-menu {
+  top: -15px;
+  margin-left: 100%;
+}
+.nested.dropdown .dropdown-trigger button::after {
+  content: ">";
+}
+.nested.dropdown .dropdown-trigger button {
+  padding: 0px 0px;
+  border: 0px;
+  font-size: 14px;
+  font-weight: 400;
+  height: 2em;
+}
+.nested.dropdown:hover {
+  background-color: pink;
+}
+.nested.dropdown:hover .dropdown-trigger > button {
+  background-color: pink;
+}
+
+.navbar-end button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: 1.1em;
+  color: #333;
+}
+.navbar-end .dropdown-trigger {
+  margin-right: 1vw;
+}
+.navbar-end .dropdown-content {
+  width: 150px;
+  margin-left: 50px;
+}
+.navbar-end .dropdown-content button {
+  font-size: medium;
+  text-align: center;
+}
