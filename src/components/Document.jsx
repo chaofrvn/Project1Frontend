@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Comment from "./Comment";
 import { useParams } from "react-router-dom";
 
 const Document = () => {
@@ -10,6 +11,7 @@ const Document = () => {
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [msg, setMsg] = useState("");
+  const [Id, setId] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -19,12 +21,14 @@ const Document = () => {
         const response = await axios.get(
           `http://localhost:4688/documents/${id}`
         );
+        console.log(response.data);
         setName(response.data.name);
         setAuthor(response.data.author);
         setType(response.data.type);
         setSubject(response.data.subject);
         setDescription(response.data.description);
         setLink(response.data.link);
+        setId(response.data.id);
       } catch (error) {
         if (error.response) {
           setMsg(error.response.data.msg);
@@ -48,6 +52,7 @@ const Document = () => {
           Nhấn vào đây để chuyển tiếp tới tài liệu
         </a>{" "}
       </p>
+      <Comment docId={Id}></Comment>
     </div>
   );
 };

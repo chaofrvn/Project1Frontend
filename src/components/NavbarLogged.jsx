@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
 import "../assets/css/style2.css";
 
 const NavbarLogged = () => {
+  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
@@ -286,8 +287,16 @@ const NavbarLogged = () => {
                 className="input is-primary"
                 type="text"
                 placeholder="tìm tài liệu, tác giả"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
-              <button className="button" type="submit">
+              <button
+                className="button"
+                type="submit"
+                onClick={() => {
+                  navigate(`/documents/search/${search}`);
+                }}
+              >
                 Tìm
               </button>
             </form>

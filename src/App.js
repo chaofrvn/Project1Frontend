@@ -15,6 +15,7 @@ import DocumentListBySubject from "./pages/DocumentListBySubject";
 import Navbar from "./components/Navbar";
 import Intro from "./pages/Intro";
 import IntroL from "./pages/IntroL";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             path="/documents/bysubject/:subject"
             element={<DocumentListBySubject />}
           />
+          <Route path="/documents/search/:search" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Documents from "./Documents.jsx";
 
-const DocumentList = () => {
+export default function Search() {
+  const { search } = useParams();
   const [documents, setDocuments] = useState([]);
 
   useEffect(() => {
@@ -11,7 +12,9 @@ const DocumentList = () => {
   }, []);
 
   const getDocuments = async () => {
-    const response = await axios.get("http://localhost:4688/documents");
+    const response = await axios.get("http://localhost:4688/documents", {
+      params: { search: search },
+    });
     setDocuments(response.data);
   };
 
@@ -30,6 +33,4 @@ const DocumentList = () => {
       <Documents documents={documents} deleteDocument={deleteDocument} />
     </div>
   );
-};
-
-export default DocumentList;
+}

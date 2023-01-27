@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Pagination from "./Pagination.jsx";
 
 const Userlist = () => {
+  const numberOfUserOnAPage = 20;
   const [users, setUsers] = useState([]);
-
+  const [page, setPage] = useState(1);
   useEffect(() => {
     getUsers();
   }, []);
@@ -37,30 +39,39 @@ const Userlist = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
-            <tr key={user.uuid}>
-              <td>{index + 1}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.role}</td>
-              <td>
-                <Link
-                  to={`/users/edit/${user.uuid}`}
-                  className="button is-small is-info"
-                >
-                  Edit
-                </Link>
-                <button
-                  onClick={() => deleteUser(user.uuid)}
-                  className="button is-small is-danger"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
+          {users.map((user, index) => {
+            if (index < (page - 1) * numberOfUserOnAPage) return null;
+            if (index >= page * numberOfUserOnAPage) return null;
+            return (
+              <tr key={user.uuid}>
+                <td>{index + 1}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.role}</td>
+                <td>
+                  <Link
+                    to={`/users/edit/${user.uuid}`}
+                    className="button is-small is-info"
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => deleteUser(user.uuid)}
+                    className="button is-small is-danger"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
+      <Pagination
+        page={page}
+        setPage={setPage}
+        totalPages={users.length / numberOfUserOnAPage}
+      ></Pagination>
     </div>
   );
 };

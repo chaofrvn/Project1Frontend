@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-
+import Documents from "./Documents.jsx";
 const DocumentBySubject = () => {
   const [documents, setDocuments] = useState([]);
   const { subject } = useParams();
@@ -49,13 +49,14 @@ const DocumentBySubject = () => {
       {/* <Link to="/documents/add" className="button is-primary mb-2">
         Add New
       </Link> */}
-      <table className="table is-striped is-fullwidth">
+      <Documents documents={documents} deleteDocument={deleteDocument} />
+      {/* <table className="table is-striped is-fullwidth">
         <thead>
           <tr>
             <th>No</th>
             <th>Tên tài liệu</th>
             <th>Tác giả</th>
-            {/* <th>Created By</th> */}
+            
             <th>Thao tác</th>
           </tr>
         </thead>
@@ -65,7 +66,7 @@ const DocumentBySubject = () => {
               <td>{index + 1}</td>
               <td>{document.name}</td>
               <td>{document.author}</td>
-              {/* <td>{document.user.name}</td> */}
+  
               <td>
                 <Link
                   to={`/documents/edit/${document.uuid}`}
@@ -89,7 +90,7 @@ const DocumentBySubject = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };
