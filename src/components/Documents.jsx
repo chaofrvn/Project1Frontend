@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import { Link } from "react-router-dom";
 import Pagination from "./Pagination.jsx";
 export default function Documents({ documents, deleteDocument }) {
   const [page, setPage] = useState(1);
+  const { user } = useSelector((state) => state.auth);
+
   const numberOfDocumentsOnAPage = 20;
   const totalPages = Math.ceil(documents.length / numberOfDocumentsOnAPage);
   return (
@@ -31,24 +35,28 @@ export default function Documents({ documents, deleteDocument }) {
                 <td>{document.author}</td>
                 {/* <td>{document.user.name}</td> */}
                 <td>
-                  <Link
-                    to={`/documents/edit/${document.uuid}`}
-                    className="button is-small is-info"
-                  >
-                    Chỉnh sửa
-                  </Link>
+                  {user && user.role === "admin" && (
+                    <Link
+                      to={`/documents/edit/${document.uuid}`}
+                      className="button is-small is-info"
+                    >
+                      Chỉnh sửa
+                    </Link>
+                  )}
                   <Link
                     to={`/documents/view/${document.uuid}`}
                     className="button is-small is-success"
                   >
                     Xem
                   </Link>
-                  <button
-                    onClick={() => deleteDocument(document.uuid)}
-                    className="button is-small is-danger"
-                  >
-                    Xóa
-                  </button>
+                  {user && user.role === "admin" && (
+                    <button
+                      onClick={() => deleteDocument(document.uuid)}
+                      className="button is-small is-danger"
+                    >
+                      Xóa
+                    </button>
+                  )}
                 </td>
               </tr>
             );

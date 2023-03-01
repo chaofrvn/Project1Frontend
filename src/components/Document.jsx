@@ -48,7 +48,8 @@ const Document = () => {
       <p className="document-price"> Mô tả tài liệu : {description} </p>
       <p className="document-price">
         {" "}
-        Đường dẫn : <a href={link}>
+        Đường dẫn :{" "}
+        <a href={link} target="_blank">
           Nhấn vào đây để chuyển tiếp tới tài liệu
         </a>{" "}
       </p>

@@ -112,7 +112,7 @@ const FormAddDocument = () => {
       typeid: "Tài liệu ngành CNTT",
     },
 
-    { name: "Các môn khác", value: "other", typeid: "other" },
+    { name: "Các môn khác", value: "other", typeid: "Tài liệu khác" },
   ];
 
   const [typea, setTypea] = useState([]);

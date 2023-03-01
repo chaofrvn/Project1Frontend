@@ -35,65 +35,108 @@ const FormEditDocument = () => {
   }, [id]);
 
   const types = [
-    { name: "Tài liệu đại cương", value: "general" },
-    { name: "Tài liệu ngành CNTT", value: "IT" },
-    { name: "Tài liệu khác", value: "others" },
+    { name: "Tài liệu đại cương", value: "Tài liệu đại cương" },
+    { name: "Tài liệu ngành CNTT", value: "Tài liệu ngành CNTT" },
+    { name: "Tài liệu khác", value: "Tài liệu khác" },
   ];
 
   const subjects = [
-    { name: "Giải tích", value: "Giải tích", typeid: "general" },
-    { name: "Đại số ", value: "Đại số", typeid: "general" },
+    { name: "Giải tích", value: "Giải tích", typeid: "Tài liệu đại cương" },
+    { name: "Đại số ", value: "Đại số", typeid: "Tài liệu đại cương" },
     {
       name: "Xác suất thống kê",
       value: "Xác suất thống kê",
-      typeid: "general",
+      typeid: "Tài liệu đại cương",
     },
     {
       name: "Vật lý đại cương",
       value: "Vật lý đại cương",
-      typeid: "general",
+      typeid: "Tài liệu đại cương",
     },
     {
       name: "Tin học đại cương",
       value: "Tin học đại cương",
-      typeid: "general",
+      typeid: "Tài liệu đại cương",
+    },
+    // {
+    //   name: "Lý luận chính trị",
+    //   value: "Lý luận chính trị",
+    //   typeid: "Tài liệu đại cương",
+    // },
+    {
+      name: "Các môn khác",
+      value: "Các môn đại cương khác",
+      typeid: "Tài liệu đại cương",
     },
     {
-      name: "Lý luận chính trị",
-      value: "Lý luận chính trị",
-      typeid: "general",
+      name: "Toán rời rạc",
+      value: "Toán rời rạc",
+      typeid: "Tài liệu ngành CNTT",
     },
-    { name: "Các môn khác", value: "general-others", typeid: "general" },
-    { name: "Toán rời rạc", value: "Toán rời rạc", typeid: "IT" },
     {
       name: "Cấu trúc dữ liệu và thuật toán",
       value: "Cấu trúc dữ liệu và thuật toán",
-      typeid: "IT",
+      typeid: "Tài liệu ngành CNTT",
     },
     {
       name: "Lập trình hướng đối tượng",
       value: "Lập trình hướng đối tượng",
-      typeid: "IT",
+      typeid: "Tài liệu ngành CNTT",
     },
-    { name: "Mạng máy tính", value: "Mạng máy tính", typeid: "IT" },
-    { name: "Cơ sở dữ liệu", value: "Cơ sở dữ liệu", typeid: "IT" },
-    { name: "Kiến trúc máy tính", value: "Kiến trúc máy tính", typeid: "IT" },
-    { name: "Hệ điều hành", value: "Hệ điều hành", typeid: "IT" },
-    { name: "Kĩ thuật lập trình", value: "Kĩ thuật lập trình", typeid: "IT" },
-    { name: "Nhập môn AI", value: "Nhập môn AI", typeid: "IT" },
-    { name: "Nhập môn CNPM", value: "Nhập môn CNPM", typeid: "IT" },
-    { name: "Nhập môn học máy", value: "Nhập môn học máy", typeid: "IT" },
+    {
+      name: "Mạng máy tính",
+      value: "Mạng máy tính",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Cơ sở dữ liệu",
+      value: "Cơ sở dữ liệu",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Kiến trúc máy tính",
+      value: "Kiến trúc máy tính",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Hệ điều hành",
+      value: "Hệ điều hành",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Kĩ thuật lập trình",
+      value: "Kĩ thuật lập trình",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Nhập môn AI",
+      value: "Nhập môn AI",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Nhập môn CNPM",
+      value: "Nhập môn CNPM",
+      typeid: "Tài liệu ngành CNTT",
+    },
+    {
+      name: "Nhập môn học máy",
+      value: "Nhập môn học máy",
+      typeid: "Tài liệu ngành CNTT",
+    },
     {
       name: "Nhập môn an toàn thông tin",
       value: "Nhập môn an toàn thông tin",
-      typeid: "IT",
+      typeid: "Tài liệu ngành CNTT",
     },
-    { name: "Làm việc nhóm", value: "Làm việc nhóm", typeid: "IT" },
-    { name: "Các môn khác", value: "IT-others", typeid: "IT" },
+    ,
+    {
+      name: "Các môn khác",
+      value: "Các môn CNTT khác",
+      typeid: "Tài liệu ngành CNTT",
+    },
 
-    { name: "Các môn khác", value: "other", typeid: "other" },
+    { name: "Các môn khác", value: "other", typeid: "Tài liệu khác" },
   ];
-
   const [typea, setTypea] = useState([]);
   const [subjecta, setSubjecta] = useState([]);
 

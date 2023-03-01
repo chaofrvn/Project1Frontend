@@ -15,9 +15,19 @@ const DocumentList = () => {
     setDocuments(response.data);
   };
 
-  const deleteDocument = async (documentId) => {
+  const deleteDocument1 = async (documentId) => {
     await axios.delete(`http://localhost:4688/documents/${documentId}`);
     getDocuments();
+  };
+
+  const deleteDocument = async (documentId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    if (confirmDelete) {
+      // alert("Item Deleted");
+      deleteDocument1(documentId);
+    }
   };
 
   return (

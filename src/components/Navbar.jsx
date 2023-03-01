@@ -3,14 +3,15 @@ import { NavLink, useNavigate } from "react-router-dom";
 // import { useDispatch, useSelector } from "react-redux";
 // import { LogOut, reset } from "../features/authSlice";
 import "../assets/css/style2.css";
-
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         {/* <!-- first half --> */}
         <div className="navbar-brand">
-          <NavLink className="navbar-item" to="#">
+          <NavLink className="navbar-item" to="/">
             <span className="logo">DocS</span>
           </NavLink>
           <NavLink

@@ -7,7 +7,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-  //   const [role, setRole] = useState("");
+  const [role, setRole] = useState("");
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
 
@@ -87,6 +87,20 @@ const Register = () => {
                 </div>
               </div>
               {/* <div className="field">
+                <label className="label">Role</label>
+                <div className="control">
+                  <div className="select is-fullwidth">
+                    <select
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                    >
+                      <option value="admin">Admin</option>
+                      <option value="user">User</option>
+                    </select>
+                  </div>
+                </div>
+              </div> */}
+              {/* <div className="field">
                 <div className="control">
                   <div className="select is-fullwidth">
                     <input value="user" hidden></input>
@@ -96,7 +110,7 @@ const Register = () => {
               <div className="field">
                 <div className="control">
                   <button type="submit" className="button is-success">
-                    Register
+                    Đăng kí
                   </button>
                 </div>
               </div>

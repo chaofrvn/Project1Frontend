@@ -14,10 +14,10 @@ const Login = () => {
 
   useEffect(() => {
     if (user || isSuccess) {
-      console.log("yes");
+      // console.log("yes");
       navigate("/dashboard");
     }
-    console.log("no");
+    // console.log("no");
     dispatch(reset());
   }, [user, isSuccess, dispatch, navigate]);
 

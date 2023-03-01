@@ -18,65 +18,17 @@ const NavbarLogged = () => {
 
   return (
     <div>
-      {/* <nav
-        className="navbar is-fixed-top has-shadow"
-        role="navigation"
-        aria-label="main navigation"
-      >
-        <div className="navbar-brand">
-          <NavLink to="/dashboard" className="navbar-item">
-            <img src={logo} width="112" height="28" alt="logo" />
-          </NavLink>
-
-          <NavLink
-            to="!#"
-            role="button"
-            className="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </NavLink>
-        </div>
-
-        <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <button onClick={logout} className="button is-light">
-                  Log out
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav> */}
       <nav className="navbar" role="navigation" aria-label="main navigation">
         {/* <!-- first half --> */}
         <div className="navbar-brand">
           <NavLink className="navbar-item" to="/dashboard">
             <span className="logo">DocS</span>
           </NavLink>
-          {/* <NavLink
-            role="button"
-            className="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </NavLink> */}
         </div>
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             {/* <!-- tài liệu  --> */}
-
             <div className="navbar-item has-dropdown is-hoverable">
               <NavLink to="/documents" className="navbar-link">
                 {" "}
@@ -258,22 +210,24 @@ const NavbarLogged = () => {
                 </NavLink>
               </div>
             </div>
+            {user && user.role === "admin" && (
+              <div className="navbar-item has-dropdown is-hoverable">
+                <NavLink className="navbar-link"> Quản lý </NavLink>
 
-            <div className="navbar-item has-dropdown is-hoverable">
-              <NavLink className="navbar-link"> Quản lý </NavLink>
-
-              <div className="navbar-dropdown">
-                <NavLink to="/documents/add" className="navbar-item">
-                  {" "}
-                  Thêm tài liệu{" "}
-                </NavLink>
-                <NavLink to="/users" className="navbar-item">
-                  {" "}
-                  Quản lý người dùng{" "}
-                </NavLink>
-                {/* <!-- <NavLink className="navbar-item"> Tài liệu khác </NavLink> --> */}
+                <div className="navbar-dropdown">
+                  <NavLink to="/documents/add" className="navbar-item">
+                    {" "}
+                    Thêm tài liệu{" "}
+                  </NavLink>
+                  <NavLink to="/users" className="navbar-item">
+                    {" "}
+                    Quản lý người dùng{" "}
+                  </NavLink>
+                  {/* <!-- <NavLink className="navbar-item"> Tài liệu khác </NavLink> --> */}
+                </div>
               </div>
-            </div>
+            )}
+
             <NavLink to="/introduce" className="navbar-item">
               {" "}
               Giới thiệu{" "}

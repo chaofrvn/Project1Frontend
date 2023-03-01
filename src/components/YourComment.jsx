@@ -23,7 +23,10 @@ export default function YourComment({ docId }) {
 
   return (
     <>
-      Bình luận của bạn
+      <div className="has-text-weight-bold  is-size-5 mb-2 mt-4">
+        Bình luận của bạn
+      </div>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();

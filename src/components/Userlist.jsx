@@ -16,9 +16,19 @@ const Userlist = () => {
     setUsers(response.data);
   };
 
-  const deleteUser = async (userId) => {
+  const deleteUser1 = async (userId) => {
     await axios.delete(`http://localhost:4688/users/${userId}`);
     getUsers();
+  };
+
+  const deleteUser = async (userId) => {
+    const confirmDelete = window.confirm(
+      "Bạn có chắc muốn xóa đi người dùng này ?"
+    );
+    if (confirmDelete) {
+      // alert("Item Deleted");
+      deleteUser1(userId);
+    }
   };
 
   return (
@@ -53,13 +63,13 @@ const Userlist = () => {
                     to={`/users/edit/${user.uuid}`}
                     className="button is-small is-info"
                   >
-                    Edit
+                    Chỉnh sửa
                   </Link>
                   <button
                     onClick={() => deleteUser(user.uuid)}
                     className="button is-small is-danger"
                   >
-                    Delete
+                    Xóa
                   </button>
                 </td>
               </tr>

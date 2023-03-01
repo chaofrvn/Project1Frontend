@@ -4,7 +4,8 @@ import Welcome from "../components/Welcome";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getMe } from "../features/authSlice";
-
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (isError) {
-      // navigate("/");
-      console.log("isError", isError);
-      console.log("isSuccess, ", isSuccess);
+      navigate("/");
+      // console.log("isError", isError);
+      // console.log("isSuccess, ", isSuccess);
     }
   }, [isError, navigate]);
 

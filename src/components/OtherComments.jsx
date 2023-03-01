@@ -7,7 +7,7 @@ export default function OtherComments({ docId }) {
     const interval = setInterval(() => {
       axios
         .get(`http://localhost:4688/comment/${docId}`, {
-          params: { other: true },
+          // params: { other: true },
         })
         .catch((err) => {
           console.log(err);
@@ -33,8 +33,8 @@ export default function OtherComments({ docId }) {
 
   return (
     <>
-      <div className="has-text-weight-bold  is-size-4 mb-2 mt-4">
-        Bình luận khác
+      <div className="has-text-weight-bold  is-size-5 mb-2 mt-4">
+        Tất cả bình luận
       </div>
 
       {comments.map((comment, i) => {
