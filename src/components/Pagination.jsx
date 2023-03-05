@@ -11,7 +11,7 @@ export default function Pagination({ page, setPage = () => {}, totalPages }) {
     >
       <ul className="pagination-list">
         <li>
-          <a
+          <span
             className={`pagination-link  ${
               1 == page ? "is-current" : undefined
             }`}
@@ -20,13 +20,13 @@ export default function Pagination({ page, setPage = () => {}, totalPages }) {
             onClick={() => setPage(1)}
           >
             1
-          </a>
+          </span>
         </li>
         {pageNumbers.map((number) => {
           if (number > page - 2 && number < page + 2) {
             return (
               <li key={number}>
-                <a
+                <span
                   className={`pagination-link  ${
                     number == page ? "is-current" : undefined
                   }`}
@@ -35,7 +35,7 @@ export default function Pagination({ page, setPage = () => {}, totalPages }) {
                   onClick={() => setPage(number)}
                 >
                   {number}
-                </a>
+                </span>
               </li>
             );
           } else if (number == page - 2) {

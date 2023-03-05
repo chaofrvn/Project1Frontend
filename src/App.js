@@ -16,6 +16,7 @@ import Navbar from "./components/Navbar";
 import Intro from "./pages/Intro";
 import IntroL from "./pages/IntroL";
 import Search from "./pages/Search";
+import Chart from "./pages/Chart";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/" element={<Navbar />} />
           <Route path="/intro" element={<Intro />} />
           <Route path="/introduce" element={<IntroL />} />
-
+          <Route path="/chart" element={<Chart />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<UpdateProfile />} />
           <Route path="/users" element={<Users />} />
@@ -37,6 +38,7 @@ function App() {
           <Route path="/documents/add" element={<AddDocument />} />
           <Route path="/documents/edit/:id" element={<EditDocument />} />
           <Route path="/documents/view/:id" element={<ViewDocument />} />
+
           <Route
             path="/documents/bytype/:type"
             element={<DocumentListByType />}

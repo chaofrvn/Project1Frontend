@@ -7,6 +7,11 @@ import axios from "axios";
 import "bulma/css/bulma.css";
 
 axios.defaults.withCredentials = true;
+axios.defaults.headers = {
+  "Cache-Control": "no-cache",
+  Pragma: "no-cache",
+  Expires: "0",
+};
 
 const container = document.getElementById("root");
 const root = createRoot(container);

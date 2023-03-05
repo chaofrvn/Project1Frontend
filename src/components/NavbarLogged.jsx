@@ -223,7 +223,10 @@ const NavbarLogged = () => {
                     {" "}
                     Quản lý người dùng{" "}
                   </NavLink>
-                  {/* <!-- <NavLink className="navbar-item"> Tài liệu khác </NavLink> --> */}
+                  <NavLink className="navbar-item" to="/chart">
+                    {" "}
+                    Biểu đồ{" "}
+                  </NavLink>
                 </div>
               </div>
             )}
