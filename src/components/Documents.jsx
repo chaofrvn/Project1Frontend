@@ -6,7 +6,20 @@ import Pagination from "./Pagination.jsx";
 export default function Documents({ documents, deleteDocument }) {
   const [page, setPage] = useState(1);
   const { user } = useSelector((state) => state.auth);
-
+  const { search } = useSelector((state) => state.search);
+  documents = documents.filter((obj) => {
+    const { author, name } = obj;
+    if (
+      removeAccents(author)
+        .toUpperCase()
+        .includes(removeAccents(search).toUpperCase()) ||
+      removeAccents(name)
+        .toUpperCase()
+        .includes(removeAccents(search).toUpperCase())
+    ) {
+      return true;
+    } else return false;
+  });
   const numberOfDocumentsOnAPage = 20;
   const totalPages = Math.ceil(documents.length / numberOfDocumentsOnAPage);
   return (
@@ -70,4 +83,11 @@ export default function Documents({ documents, deleteDocument }) {
       ></Pagination>
     </>
   );
+}
+function removeAccents(str) {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D");
 }

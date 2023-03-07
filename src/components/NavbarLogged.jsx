@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
+import { update } from "../features/searchSlice";
 import "../assets/css/style2.css";
 
 const NavbarLogged = () => {
-  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
@@ -238,26 +238,7 @@ const NavbarLogged = () => {
           </div>
 
           {/* <!-- second half --> */}
-          <div className="navbar-item">
-            <form className="navbar-search">
-              <input
-                className="input is-primary"
-                type="text"
-                placeholder="tìm tài liệu, tác giả"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <button
-                className="button"
-                type="submit"
-                onClick={() => {
-                  navigate(`/documents/search/${search}`);
-                }}
-              >
-                Tìm
-              </button>
-            </form>
-          </div>
+          <SearchPrompt />
 
           <div className="navbar-end">
             <div className="navbar-item">
@@ -298,3 +279,23 @@ const NavbarLogged = () => {
 };
 
 export default NavbarLogged;
+function SearchPrompt() {
+  const dispatch = useDispatch();
+  console.log(useSelector((state) => state));
+  const { search } = useSelector((state) => state.search);
+  return (
+    <div className="navbar-item">
+      <form className="navbar-search">
+        <input
+          className="input is-primary"
+          type="text"
+          placeholder="tìm tài liệu, tác giả"
+          value={search}
+          onChange={(e) => {
+            dispatch(update(e.target.value));
+          }}
+        />
+      </form>
+    </div>
+  );
+}
