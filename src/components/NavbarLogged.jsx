@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import {
+  NavLink,
+  useNavigate,
+  useLocation,
+  useSearchParams,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
 import { update } from "../features/searchSlice";
@@ -281,7 +286,13 @@ const NavbarLogged = () => {
 export default NavbarLogged;
 function SearchPrompt() {
   const dispatch = useDispatch();
-  console.log(useSelector((state) => state));
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const active = searchParams.get("active");
+  console.log(active);
+
   const { search } = useSelector((state) => state.search);
   return (
     <div className="navbar-item">
@@ -289,10 +300,14 @@ function SearchPrompt() {
         <input
           className="input is-primary"
           type="text"
+          autoFocus={active ? true : false}
           placeholder="tìm tài liệu, tác giả"
           value={search}
           onChange={(e) => {
             dispatch(update(e.target.value));
+            if (location.pathname == "/dashboard") {
+              navigate("/documents?active=true");
+            }
           }}
         />
       </form>
