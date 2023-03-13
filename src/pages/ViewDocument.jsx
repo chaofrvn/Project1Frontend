@@ -16,7 +16,7 @@ const ViewDocument = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/");
+      // navigate("/");
     }
   }, [isError, navigate]);
 

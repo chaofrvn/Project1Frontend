@@ -45,6 +45,7 @@ export default function Chart() {
         <UserChart />
         <DocChartBySubject />
         <DocChartByType />
+        <DocChartBySubjectInOneType type="Tài liệu đại cương" />
         <UserLineByDate />
         <NewUserLineByDate />
         <DocLineByDate />
@@ -79,6 +80,47 @@ function UserChart() {
             datasets: [
               {
                 label: "Tài khoản",
+                data: data.map((obj) => obj.number),
+                backgroundColor: data.map((obj, index) => bgColor[index]),
+                borderColor: data.map((obj, index) => borderColor[index]),
+              },
+            ],
+          }}
+        ></Pie>
+      </div>
+    </>
+  );
+}
+function DocChartBySubjectInOneType({ type }) {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:4688/overview/document", {
+        params: { type: "subject", Type: type },
+      })
+      .then((res) => {
+        setData(res.data);
+        console.log(res.data);
+      });
+  }, []);
+  return (
+    <>
+      <div style={{ width: "300px", display: "inline-block" }}>
+        <Pie
+          options={{
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: "Tỉ lệ tài liệu theo môn học của " + type,
+              },
+            },
+          }}
+          data={{
+            labels: data.map((obj) => obj.subject),
+            datasets: [
+              {
+                label: "Tài liệu",
                 data: data.map((obj) => obj.number),
                 backgroundColor: data.map((obj, index) => bgColor[index]),
                 borderColor: data.map((obj, index) => borderColor[index]),

@@ -52,6 +52,7 @@ const Document = () => {
         <a href={link} target="_blank">
           Nhấn vào đây để chuyển tiếp tới tài liệu
         </a>{" "}
+        {/* <a href="http://google.com">aa</a> */}
       </p>
       <Comment docId={Id}></Comment>
     </div>

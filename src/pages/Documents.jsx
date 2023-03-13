@@ -16,7 +16,7 @@ const Documents = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/");
+      // navigate("/");S
     }
   }, [isError, navigate]);
   return (
