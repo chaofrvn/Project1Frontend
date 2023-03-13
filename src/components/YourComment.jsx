@@ -23,7 +23,7 @@ export default function YourComment({ docId }) {
 
   return (
     <>
-      <div className="has-text-weight-bold  is-size-5 mb-2 mt-4">
+      <div className="has-text-weight-bold  is-size-6 mb-2 mt-4">
         Bình luận của bạn
       </div>
 
@@ -37,7 +37,8 @@ export default function YourComment({ docId }) {
         <textarea
           placeholder="Nhập bình luận của bạn"
           className="textarea is-medium"
-          rows="3"
+          // fontSize="14px"
+          rows="2"
           value={commentBody}
           onChange={(e) => {
             setCommentBody(e.target.value);

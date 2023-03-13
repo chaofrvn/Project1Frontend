@@ -9,7 +9,7 @@ export default function OtherComment({
   const date = new Date(updatedAt);
   const month = [];
   return (
-    <div className="is-size-5">
+    <div className="is-size-6" sytle={{ marginTop: "10px" }}>
       <section>
         <span className="mr-3"> {author}</span>
 

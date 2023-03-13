@@ -5,7 +5,10 @@ const Layout = ({ children }) => {
     <React.Fragment>
       <NavbarL />
       <div className="columns mt-6" style={{ minHeight: "100vh" }}>
-        <div className="column hsfas-background-light is-10 is-offset-1">
+        <div
+          className="column hsfas-background-light is-10 is-offset-1"
+          style={{ backgroundColor: "aliceblue" }}
+        >
           <main>{children}</main>
         </div>
       </div>

@@ -29,6 +29,16 @@ const bgColor = [
   "rgba(75, 192, 192, 0.2)",
   "rgba(153, 102, 255, 0.2)",
   "rgba(255, 159, 64, 0.2)",
+  "rgba(153, 102, 255, 0.2)",
+  "rgba(43, 168, 196, 0.2)",
+  "rgba(240, 14, 228, 0,2)",
+  "rgba(232, 21, 112, 0.2)",
+  "rgba(30, 217, 30, 0.2)",
+  "rgba(22, 123, 224, 0.2)",
+  "rgba(215, 175, 224, 0.2)",
+  "rgba(175, 180, 224, 0.2)",
+  "rgba(119, 191, 140, 0.2)",
+  "rgba(216, 232, 135, 0.2)",
 ];
 const borderColor = [
   "rgba(255, 99, 132, 1)",
@@ -37,19 +47,38 @@ const borderColor = [
   "rgba(75, 192, 192, 1)",
   "rgba(153, 102, 255, 1)",
   "rgba(255, 159, 64, 1)",
+  "rgba(43, 168, 196, 1)",
+  "rgba(240, 14, 228, 1)",
+  "rgba(232, 21, 112, 1)",
+  "rgba(30, 217, 30, 1)",
+  "rgba(22, 123, 224, 1)",
+  "rgba(215, 175, 224, 1)",
+  "rgba(175, 180, 224, 1)",
+  "rgba(119, 191, 140, 1)",
+  "rgba(216, 232, 135, 1)",
 ];
 export default function Chart() {
   return (
     <>
-      <div style={{ display: "inline-block" }}>
-        <UserChart />
-        <DocChartBySubject />
-        <DocChartByType />
-        <DocChartBySubjectInOneType type="Tài liệu đại cương" />
-        <UserLineByDate />
-        <NewUserLineByDate />
-        <DocLineByDate />
-        <NewDocLineByDate />
+      <div>
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <UserChart />
+        </div>
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <DocChartByType />
+        </div>
+        <div style={{ marginTop: "20px", textAlign: "center" }}>
+          <DocChartBySubjectInOneType type="Tài liệu đại cương" />
+        </div>
+        <div style={{ marginTop: "50px", textAlign: "center" }}>
+          <DocChartBySubjectInOneType type="Tài liệu ngành CNTT" />
+        </div>
+        <div style={{ marginTop: "50px" }}>
+          <UserLineByDate />
+          <NewUserLineByDate />
+          <DocLineByDate />
+          <NewDocLineByDate />
+        </div>
       </div>
     </>
   );
@@ -105,7 +134,7 @@ function DocChartBySubjectInOneType({ type }) {
   }, []);
   return (
     <>
-      <div style={{ width: "300px", display: "inline-block" }}>
+      <div style={{ width: "500px", display: "inline-block" }}>
         <Pie
           options={{
             responsive: true,
@@ -146,7 +175,7 @@ function DocChartBySubject() {
   }, []);
   return (
     <>
-      <div style={{ width: "300px", display: "inline-block" }}>
+      <div style={{ width: "400px", display: "inline-block" }}>
         <Pie
           options={{
             responsive: true,
@@ -223,7 +252,7 @@ function UserLineByDate() {
     });
   }, []);
   return (
-    <div>
+    <div style={{ height: "400px", textAlign: "center" }}>
       <></>
       <Line
         options={{
@@ -259,7 +288,7 @@ function NewUserLineByDate() {
     });
   }, []);
   return (
-    <div>
+    <div style={{ height: "400px", textAlign: "center" }}>
       <></>
       <Line
         options={{
@@ -304,7 +333,7 @@ function DocLineByDate() {
     });
   }, []);
   return (
-    <div>
+    <div style={{ height: "400px", textAlign: "center" }}>
       <></>
       <Line
         options={{
@@ -340,7 +369,7 @@ function NewDocLineByDate() {
     });
   }, []);
   return (
-    <div>
+    <div style={{ height: "400px", textAlign: "center" }}>
       <></>
       <Line
         options={{

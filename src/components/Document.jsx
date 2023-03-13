@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "../assets/css/style3.css";
 
 const Document = () => {
   const [name, setName] = useState("");
@@ -13,6 +15,7 @@ const Document = () => {
   const [msg, setMsg] = useState("");
   const [Id, setId] = useState("");
   const { id } = useParams();
+  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
     const getDocumentById = async () => {
@@ -39,11 +42,13 @@ const Document = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="document-container">
       <h1 className="title">Tài liệu</h1>
       <p className="has-text-centered">{msg}</p>
 
       <p className="document-name">Tên tài liệu: {name}</p>
+      <p className="document-price"> Loại tài liệu: {type} </p>
+      <p className="document-price"> Môn học: {subject} </p>
       <p className="document-price"> Tác giả: {author} </p>
       <p className="document-price"> Mô tả tài liệu : {description} </p>
       <p className="document-price">
@@ -54,7 +59,29 @@ const Document = () => {
         </a>{" "}
         {/* <a href="http://google.com">aa</a> */}
       </p>
-      <Comment docId={Id}></Comment>
+      {/* <Comment docId={Id}></Comment>
+       */}
+      {user && (
+        <div>
+          <Comment docId={Id}></Comment>
+        </div>
+      )}
+      {!user && (
+        <div>
+          <p className="has-text-centered">
+            {" "}
+            Bạn cần{" "}
+            <span>
+              {" "}
+              <NavLink to="/login">đăng nhập</NavLink>
+            </span>{" "}
+            để bình luận{" "}
+          </p>
+          {/* <NavLink to="/login">
+            <span className="has-text-centered">Đăng nhập tại đây</span>
+          </NavLink> */}
+        </div>
+      )}
     </div>
   );
 };

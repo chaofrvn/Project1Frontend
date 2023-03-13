@@ -27,16 +27,17 @@ export default function Comment({ docId }) {
       <div className="has-text-weight-bold mb-3 is-size-4" style={{}}>
         Bình luận và đánh giá
       </div>
-      {isError == false ? (
+      {isError == false && (
         <>
           {" "}
           <YourComment docId={docId}></YourComment>
           <AverageRating docId={docId}></AverageRating>
           <OtherComments docId={docId} />
         </>
-      ) : (
+      )}
+      {isError == true && (
         <>
-          <div className="has-text-weight-bold mb-3 is-size-6">
+          <div className="has-text-weight-bold mb-3 is-size-5">
             Bạn phải đăng nhập để thực hiện chức năng này
           </div>
         </>

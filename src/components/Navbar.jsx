@@ -246,7 +246,7 @@ const NavbarLogged = () => {
           <SearchPrompt />
 
           <div className="navbar-end">
-            <div className="navbar-item">
+            {/* <div className="navbar-item">
               <div className="dropdown is-right is-hoverable">
                 <div className="dropdown-trigger">
                   <button
@@ -255,9 +255,7 @@ const NavbarLogged = () => {
                     aria-haspopup="true"
                   >
                     <span>{user && user.name}</span>
-                    {/* <!-- <span className="icon is-small">
-                    <i className="fas fa-angle-down" aria-hidden="true"></i>
-                  </span> --> */}
+             
                   </button>
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu" role="menu">
@@ -274,6 +272,16 @@ const NavbarLogged = () => {
                     </button>
                   </div>
                 </div>
+              </div>
+            </div> */}
+            <div className="navbar-item">
+              <div className="buttons">
+                <NavLink to="/login" className="button is-primary">
+                  <strong>Đăng nhập</strong>
+                </NavLink>
+                <NavLink to="/register" className="button is-light">
+                  Đăng kí
+                </NavLink>
               </div>
             </div>
           </div>

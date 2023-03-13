@@ -1,14 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
-
+import mainImage from "../assets/image/anh1.jpg";
 const Welcome = () => {
   const { user } = useSelector((state) => state.auth);
   return (
     <div>
-      <h1 className="title">Dashboard</h1>
+      <img src={mainImage} width="100vw" />
+      {/* <h1 className="title">Dashboard</h1>
       <h2 className="subtitle">
         Welcome Back <strong>{user && user.name}</strong>
-      </h2>
+      </h2> */}
     </div>
   );
 };
