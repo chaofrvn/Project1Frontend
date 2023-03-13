@@ -16,7 +16,7 @@ const DocumentListBySubject = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/");
+      // navigate("/");
     }
   }, [isError, navigate]);
   return (
